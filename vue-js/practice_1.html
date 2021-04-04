@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='app'>
+    <div>
+      <span v-bind:title='message' :title="message">
+        v-bind
+      </span>
+      <template v-if='true'>
+        <ol>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ol>
+      </template>
+      <span v-if='boolean'>
+        v-if
+      </span>
+      <span v-else>
+        v-else
+      </span>
+      <ul>
+        <li v-for='v of list'>
+          {{ v.name }}
+        </li>
+      </ul>
+      <ul>
+        <li v-for='v in list'>
+          {{ v.name }}
+        </li>
+      </ul>
+      {{ message }}
+      <button @click='reverseMessage'>翻转message文字</button>
+    </div>
+    <div>
+      <input v-model='input'/>
+      <input @input='inputEvent' :value='input'/>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        true:false,
+        message:'hello world',
+        boolean:true,
+        list:[{name:1},{name:2},{name:3}],
+        input:'你好'
+      },
+      methods:{
+        reverseMessage(){
+          this.message = Array.from(this.message).reverse().join('')
+        },
+        inputEvent(e){
+          this.input = e.target.value
+        }
+      }
+    })
+  </script>
+</body>
+</html>

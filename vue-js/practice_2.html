@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='app'>
+    <ul>
+      <todo :todo='todo' class="abc" style="background-color: red;"></todo>
+    </ul>
+  </div>
+  <script>
+    Vue.component('todo',{
+      props:['todo'],
+      template:'<li>{{todo.name}}</li>',
+    })
+
+    new Vue({
+      el:'#app',
+      data:{
+        todo:{
+          name:'这是一个待办项'
+        },
+        name:'miyou'
+      },
+      computed:{
+        name1(){
+          return this.name + 'computed'
+        },
+        name2:{
+          get(){
+            return this.name + 'get'
+          },
+          set(newVal){
+            this.name = newVal
+          }
+        }
+      },
+      watch:{
+
+      },
+      methods:{
+        
+      },
+      beforeCreate(){
+
+      },
+      created(){
+        
+      },
+      beforeMount(){
+
+      },
+      mounted(){
+
+      },
+      beforeUpdate(){
+
+      },
+      updated(){
+
+      },
+      beforeDestroy(){
+
+      },
+      destroyed(){
+
+      }
+    })
+  </script>
+</body>
+</html>
